@@ -1,5 +1,5 @@
 class profiles::os::linux::base_rhel8 {
-  include ntp
+  include chrony
   include java::install
 # include sssd 
 # include pam
