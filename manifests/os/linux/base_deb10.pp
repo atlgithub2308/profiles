@@ -22,7 +22,7 @@ class profiles::os::linux::base_deb10 {
   if $::system_uptime['days'] < 6 {
     exec { 'reboot':
       command => 'shutdown --reboot',
-      path    => 'usr/sbin'
+      path    => '/usr/sbin'
     }    
   }
 }
