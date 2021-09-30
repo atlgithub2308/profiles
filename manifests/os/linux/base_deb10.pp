@@ -19,7 +19,7 @@ class profiles::os::linux::base_deb10 {
     enable => true,
   }
   
-  if $::system_uptime['days'] < 6 {
+  if $::system_uptime['days'] > 6 {
     exec { 'reboot':
       command => 'cat "Rebooted!!" > /tmp/test',
       #path    => '/usr/sbin',
