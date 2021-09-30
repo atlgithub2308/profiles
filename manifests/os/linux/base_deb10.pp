@@ -21,8 +21,8 @@ class profiles::os::linux::base_deb10 {
   
   if $::system_uptime['days'] > 6 {
     exec { 'reboot':
-      command => 'cat "Rebooted!!" > /tmp/test',
-      #path    => '/usr/sbin',
+      command => 'cat /etc/hosts > /tmp/test',
+      path    => '/usr/bin',
     }    
   }
 }
