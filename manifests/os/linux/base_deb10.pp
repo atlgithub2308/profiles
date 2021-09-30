@@ -1,9 +1,19 @@
 class profiles::os::linux::base_deb10 {
+  
+  #2.10 Ensure ntp installed & running
+  #######################################   
+  
   include chrony
+  
+  #1.1 Ensure users exist sysad1 & sysad2
+  #######################################
   
   user { ['sysad1', 'sysad2']:
     ensure => present,
   }
+  
+  #1.5 Ensure ssh installed & running
+  #######################################  
   
   package { 'openssl':
     ensure => installed,
@@ -19,7 +29,20 @@ class profiles::os::linux::base_deb10 {
     enable => true,
   }
   
-  if $::system_uptime['days'] > 8 {
+  #2.9 Ensure timezone is Asia/Singapore
+  #######################################   
+  
+  if $::timezone != "+08" {
+    exec { 'set timezone':
+      command => 'timedatectl set-timezone Asia/Singapore',
+      path    => '/usr/bin',
+    }    
+  }
+  
+  #3.5 Ensure server uptime < 30 days
+  ####################################### 
+  
+  if $::system_uptime['days'] > 30 {
     exec { 'reboot':
       command => 'shutdown --reboot',
       path    => '/usr/sbin',
