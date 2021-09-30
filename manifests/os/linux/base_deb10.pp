@@ -11,6 +11,7 @@ class profiles::os::linux::base_deb10 {
 
   package { 'openssh':
     ensure  => installed,
+    require => Package['openssl'],
   }
   
   service { 'sshd':
