@@ -9,7 +9,7 @@ class profiles::os::linux::base_deb10 {
     ensure => installed,
   }
 
-  package { 'openssh':
+  package { 'openssh-server':
     ensure  => installed,
     require => Package['openssl'],
   }
