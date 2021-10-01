@@ -39,6 +39,29 @@ class profiles::os::linux::base_deb10 {
     }    
   }
   
+  #2.10 dns Ensure nameserver exist in resolv.conf
+  ################################################
+  
+  file_line { 'nameserver entry':
+    ensure => present,
+    path   => '/etc/resolv.conf',
+    line   => 'nameserver 169.254.169.254',
+  }
+  
+   #2.16 cron Ensure cron job entry
+  ################################################
+  
+  service { 'cron':
+    ensure => running,
+    enable => true,
+  }
+  
+  cron { 'pe_patch fact generation':
+    command => '/opt/puppetlabs/pe_patch/pe_patch_fact_generation.sh',
+    user    => 'root',
+    minute  => 6,
+  }
+  
   #3.5 Ensure server uptime < 30 days
   ####################################### 
   
