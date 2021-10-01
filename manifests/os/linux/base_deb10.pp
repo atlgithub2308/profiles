@@ -51,11 +51,11 @@ class profiles::os::linux::base_deb10 {
    #2.16_1 cron Ensure cron job entry
   ################################################
     
-  cron { 'pe_patch fact generation':
-    command => '/opt/puppetlabs/pe_patch/pe_patch_fact_generation.sh',
-    user    => 'root',
-    minute  => 6,
-  }
+  #cron { 'pe_patch fact generation':
+  # command => '/opt/puppetlabs/pe_patch/pe_patch_fact_generation.sh',
+  #  user    => 'root',
+  #  minute  => 6,
+  #}
   
   #2.16_2 cron Ensure cron job entry
   ################################################
