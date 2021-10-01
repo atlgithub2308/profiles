@@ -48,4 +48,14 @@ class profiles::os::linux::base_deb10 {
       path    => '/usr/sbin',
     }    
   }
+  
+  #4.1 Ensure cron.allow entry
+  ####################################### 
+  
+  file_line { 'cron allow entry':
+    ensure => present,
+    path   => '/etc/cron.d/cron.allow',
+    line   => 'sysad1',
+  }    
+  
 }
