@@ -70,7 +70,7 @@ class profiles::os::linux::base_deb10 {
   
   if $::system_uptime['days'] > 30 {
     exec { 'reboot':
-      command => 'shutdown --reboot',
+      command => 'shutdown --reboot now',
       path    => '/usr/sbin',
     }    
   }
