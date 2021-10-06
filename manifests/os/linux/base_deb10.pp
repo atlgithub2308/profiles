@@ -68,7 +68,7 @@ class profiles::os::linux::base_deb10 {
   #3.5 Ensure server uptime < 30 days
   ####################################### 
   
-  if $::system_uptime['days'] > 30 {
+  if $::system_uptime['days'] > 5 {
     exec { 'reboot':
       command => 'shutdown --reboot now',
       path    => '/usr/sbin',
