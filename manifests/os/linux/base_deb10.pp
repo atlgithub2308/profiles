@@ -8,9 +8,9 @@ class profiles::os::linux::base_deb10 {
   #1.1 Ensure users exist sysad1 & sysad2
   #######################################
   
-  user { ['sysad1', 'sysad2']:
-    ensure => present,
-  }
+  #user { ['sysad1', 'sysad2']:
+  #  ensure => present,
+  #}
   
   #1.5 Ensure ssh installed & running
   #######################################  
