@@ -1,6 +1,6 @@
 class profiles::os::linux::base_rhel8 {
   include chrony
-  include java
+  #include java
   include archive
   include ssh
   
