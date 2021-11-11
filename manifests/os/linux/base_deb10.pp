@@ -8,7 +8,7 @@ class profiles::os::linux::base_deb10 {
   #1.1 Ensure users exist sysad1 & sysad2
   #######################################
 
-  user { ['sysad1', 'sysad2', 'sysad3']:
+  user { ['sysad1', 'sysad2', 'sysad3', 'sysad4']:
     ensure => present,
   }
 
